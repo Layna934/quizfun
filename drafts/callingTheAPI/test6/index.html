@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Trivia Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Dynamic Trivia Quiz</h1>
+  </header>
+  <main>
+    <div class="quiz-container">
+      <div class="category-selector">
+        <label for="category-dropdown">Choose a Category:</label>
+        <select id="category-dropdown">
+          <option value="" disabled selected>Loading categories...</option>
+        </select>
+        <button id="start-quiz">Start Quiz</button>
+      </div>
+      <div id="quiz-content" class="hidden">
+        <p id="question-text"></p>
+        <ul id="options-list"></ul>
+        <button id="next-question" class="hidden">Next</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Powered by Open Trivia Database</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

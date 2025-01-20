@@ -6,7 +6,7 @@
 import os
 from dotenv import load_dotenv
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy import create_engine
 
 
@@ -43,9 +43,8 @@ class User(Base):
 # attempt the connection to the
 # database using Python ORM and
 # creating a table
-try:
-    engine = create_engine(myDbURL, echo=True)
-    Base.metadata.create_all(engine)
-    print("Connection Successful And Table Created Successfully!")
-except:
-    print("Connection failed, and table not created")
+engine = create_engine(myDbURL, echo=True)
+Base.metadata.create_all(engine)
+print("Connection Successful And Table Created Successfully!")
+# except:
+#     print("Connection failed, and table not created")

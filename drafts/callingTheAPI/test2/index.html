@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"></path>
+                        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                        <path d="M19 11h2m-1 -1v2"></path>
+                    </svg>
+                    <span>QuizMaster</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <a href="/my-quizzes" class="nav-link">My Quizzes</a>
+                    <a href="/leaderboard" class="nav-link">Leaderboard</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <a href="/profile" class="profile-link" aria-label="Profile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation -->
+        <nav class="nav-mobile">
+            <a href="/my-quizzes" class="nav-link">My Quizzes</a>
+            <a href="/leaderboard" class="nav-link">Leaderboard</a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container main-content">
+                <div class="content-wrapper">
+                    <h1 class="title">Ready to Test Your Knowledge?</h1>
+                    <p class="subtitle">Challenge yourself with our diverse range of quizzes and compete with others!</p>
+                    <a href="/quizzes" class="cta-button">
+                        Start Playing
+                        <span class="button-shine"></span>
+                    </a>
+                </div>
+                <div class="illustration">
+                    <img src="../../../static/images/woman1.jpg" alt="Quiz illustration" width="600" height="400">
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="copyright">© <span id="year"></span> QuizMaster. All rights reserved.</p>
+                <nav class="footer-nav">
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

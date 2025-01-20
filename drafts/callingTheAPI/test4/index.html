@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        footer {
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 0.5rem 0;
+        }
+
+        .options button {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #eee;
+            transition: background 0.3s;
+        }
+
+        .options button:hover {
+            background: #ddd;
+        }
+
+        .options button.correct {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .options button.incorrect {
+            background: #f44336;
+            color: white;
+        }
+
+        .next-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .next-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>Trivia Quiz</header>
+    <div class="quiz-container">
+        <div id="quiz-content">
+            <p>Loading questions...</p>
+        </div>
+        <button class="next-btn" id="next-btn" style="display: none;">Next</button>
+    </div>
+    <footer>Powered by Open Trivia Database</footer>
+
+    <script>
+        const quizContent = document.getElementById('quiz-content');
+        const nextButton = document.getElementById('next-btn');
+
+        let questions = [];
+        let currentQuestionIndex = 0;
+
+        async function fetchQuestions() {
+            try {
+                const response = await fetch('https://opentdb.com/api.php?amount=10');
+                const data = await response.json();
+                questions = data.results;
+                showQuestion();
+            } catch (error) {
+                quizContent.innerHTML = '<p>Failed to load questions. Please try again later.</p>';
+            }
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+            const allOptions = [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5);
+
+            quizContent.innerHTML = `
+                <div class="question">${question.question}</div>
+                <ul class="options">
+                    ${allOptions.map(option => `<li><button>${option}</button></li>`).join('')}
+                </ul>
+            `;
+
+            document.querySelectorAll('.options button').forEach(button => {
+                button.addEventListener('click', () => handleAnswer(button, question.correct_answer));
+            });
+        }
+
+        function handleAnswer(selectedButton, correctAnswer) {
+            document.querySelectorAll('.options button').forEach(button => {
+                button.disabled = true;
+                if (button.textContent === correctAnswer) {
+                    button.classList.add('correct');
+                } else if (button === selectedButton) {
+                    button.classList.add('incorrect');
+                }
+            });
+            nextButton.style.display = 'block';
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+                nextButton.style.display = 'none';
+            } else {
+                quizContent.innerHTML = '<p>Quiz completed! Refresh the page to play again.</p>';
+                nextButton.style.display = 'none';
+            }
+        });
+
+        fetchQuestions();
+    </script>
+</body>
+</html>

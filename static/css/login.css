@@ -324,12 +324,22 @@ input[type="password"]:focus {
     color: var(--text-color);
 }
 
+/* footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--light-text-color);
+} */
 footer {
     text-align: center;
     padding: 20px;
     background-color: var(--background-color);
     color: var(--light-text-color);
+    position: relative; /* Ensure it stays relative to the content */
+    margin-top: 2rem; /* Add spacing between the form and footer */
+    clear: both; /* Clears any floating elements above it */
 }
+
 
 footer a {
     color: var(--primary-color);
@@ -488,4 +498,3 @@ body.dark-mode .form__submit button:hover {
 }
 
 /* Existing styles continue below */
-

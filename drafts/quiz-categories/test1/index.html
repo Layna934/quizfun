@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizFun - Choose Your Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"></path>
+                    <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                    <path d="M19 11h2m-1 -1v2"></path>
+                </svg>
+                <span>QuizFun</span>
+            </a>
+
+            <nav class="nav-desktop">
+                <a href="/my-quizzes" class="nav-link">My Quizzes</a>
+                <a href="/home" class="nav-link">Home</a>
+                <a href="/leaderboard" class="nav-link">Leaderboard</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="score-display" id="score-display">
+                    Score: <span id="current-score">0</span>/<span id="total-questions">0</span>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle theme" id="theme-toggle">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Choose Your Quiz Experience</h1>
+            
+            <div class="quiz-options">
+                <a href="/random-quiz" class="quiz-card" data-type="random">
+                    <div class="quiz-card-image">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Random Quiz" />
+                    </div>
+                    <div class="quiz-card-content">
+                        <h2>Randomized Quiz</h2>
+                        <p>Test your knowledge across various topics with our randomly generated questions.</p>
+                    </div>
+                </a>
+
+                <a href="/category-quiz" class="quiz-card" data-type="categorized">
+                    <div class="quiz-card-image">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Categorized Quiz" />
+                    </div>
+                    <div class="quiz-card-content">
+                        <h2>Categorized Quiz</h2>
+                        <p>Choose your favorite category and challenge yourself with specialized questions.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 QuizFun. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

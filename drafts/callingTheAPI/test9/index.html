@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Trivia Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"></path>
+                        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                        <path d="M19 11h2m-1 -1v2"></path>
+                    </svg>
+                    <span>Dynamic Trivia Quiz</span>
+                </a>
+
+                <div class="header-actions">
+                    <div class="score-display">
+                        Score: <span id="score-value">0</span>
+                    </div>
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="quiz-setup" class="quiz-setup">
+                <div class="setup-card">
+                    <h2>Choose Your Category</h2>
+                    <div class="form-group">
+                        <label for="category">Select Category:</label>
+                        <select id="category" class="select-input">
+                            <option value="">Loading categories...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Select Difficulty:</label>
+                        <select id="difficulty" class="select-input">
+                            <option value="">Any Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <button id="start-quiz" class="primary-button" disabled>Start Quiz</button>
+                </div>
+            </div>
+
+            <div id="quiz-container" class="quiz-container hidden">
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="category-badge" id="current-category"></span>
+                        <span class="question-number">Question <span id="current-question">1</span>/10</span>
+                    </div>
+                    
+                    <h2 id="question" class="question-text"></h2>
+                    <div id="answers" class="answers-grid"></div>
+                </div>
+
+                <button id="next-btn" class="primary-button hidden">Next Question</button>
+            </div>
+
+            <div id="results" class="results hidden">
+                <div class="results-card">
+                    <h2>Quiz Complete!</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="final-score">0</span>/10
+                        </div>
+                    </div>
+                    <p class="score-message" id="score-message"></p>
+                    <button id="restart-btn" class="primary-button">Try Another Category</button>
+                </div>
+            </div>
+
+            <div id="error-container" class="error-container hidden">
+                <div class="error-card">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <h2>Oops!</h2>
+                    <p id="error-message">Something went wrong. Please try again.</p>
+                    <button onclick="location.reload()" class="primary-button">Reload Page</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Open Trivia Database</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

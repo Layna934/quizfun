@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Trivia Quiz</h1>
+            <div class="score-container">Score: <span id="score">0</span></div>
+        </header>
+
+        <main>
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading questions...</p>
+            </div>
+
+            <div id="quiz-container" class="quiz-container hidden">
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-number">Question <span id="current-question">1</span>/10</p>
+                    <h2 id="question" class="question-text"></h2>
+                    <div id="answers" class="answers-grid"></div>
+                </div>
+
+                <button id="next-btn" class="next-button hidden">Next Question</button>
+            </div>
+
+            <div id="results" class="results hidden">
+                <h2>Quiz Complete!</h2>
+                <p>Your final score: <span id="final-score">0</span>/10</p>
+                <button id="restart-btn" class="restart-button">Try Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Open Trivia Database</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

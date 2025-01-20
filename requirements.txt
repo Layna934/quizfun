@@ -1,4 +1,5 @@
 Flask
 flask_sqlalchemy
-dotenv
+python-dotenv
 sqlalchemy
+mysql

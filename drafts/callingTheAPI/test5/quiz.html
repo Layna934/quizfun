@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Trivia Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header, footer {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category-select {
+            margin-bottom: 1rem;
+        }
+
+        select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-card {
+            margin-top: 1rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .quiz-options button {
+            display: block;
+            margin: 0.5rem 0;
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem;
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+        }
+
+        .quiz-options button.correct {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .quiz-options button.wrong {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .next-button {
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dynamic Trivia Quiz</h1>
+    </header>
+
+    <main>
+        <div class="category-select">
+            <label for="category">Select a category:</label>
+            <select id="category">
+                <option value="">Loading categories...</option>
+            </select>
+        </div>
+        <button id="start-quiz">Start Quiz</button>
+
+        <div class="quiz-card" id="quiz-card" style="display: none;">
+            <div class="quiz-question" id="quiz-question"></div>
+            <div class="quiz-options" id="quiz-options"></div>
+            <div class="next-button" id="next-button" style="display: none;">
+                <button>Next</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by Open Trivia Database</p>
+    </footer>
+
+    <script>
+        const categorySelect = document.getElementById('category');
+        const startQuizButton = document.getElementById('start-quiz');
+        const quizCard = document.getElementById('quiz-card');
+        const quizQuestion = document.getElementById('quiz-question');
+        const quizOptions = document.getElementById('quiz-options');
+        const nextButton = document.getElementById('next-button');
+
+        let currentQuestionIndex = 0;
+        let questions = [];
+
+        // Fetch categories from Open Trivia Database API
+        async function fetchCategories() {
+            const response = await fetch('https://opentdb.com/api_category.php');
+            const data = await response.json();
+            categorySelect.innerHTML = '<option value="">Select a category</option>';
+            data.trivia_categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // Fetch questions based on selected category
+        async function fetchQuestions(categoryId) {
+            const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}`);
+            const data = await response.json();
+            questions = data.results;
+            currentQuestionIndex = 0;
+            displayQuestion();
+        }
+
+        // Display a question
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            quizQuestion.innerHTML = question.question;
+
+            const options = [...question.incorrect_answers, question.correct_answer]
+                .sort(() => Math.random() - 0.5);
+
+            quizOptions.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => handleAnswer(option, question.correct_answer, button);
+                quizOptions.appendChild(button);
+            });
+
+            quizCard.style.display = 'block';
+            nextButton.style.display = 'none';
+        }
+
+        // Handle answer selection
+        function handleAnswer(selected, correct, button) {
+            const buttons = quizOptions.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (selected === correct) {
+                button.classList.add('correct');
+            } else {
+                button.classList.add('wrong');
+                buttons.forEach(btn => {
+                    if (btn.textContent === correct) btn.classList.add('correct');
+                });
+            }
+
+            nextButton.style.display = 'block';
+        }
+
+        // Move to the next question
+        nextButton.querySelector('button').onclick = () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                quizCard.innerHTML = '<p>Quiz Complete! Thank you for playing.</p>';
+            }
+        };
+
+        // Start quiz
+        startQuizButton.onclick = () => {
+            const categoryId = categorySelect.value;
+            if (!categoryId) {
+                alert('Please select a category');
+                return;
+            }
+            fetchQuestions(categoryId);
+        };
+
+        // Initialize categories on page load
+        fetchCategories();
+    </script>
+</body>
+</html>
