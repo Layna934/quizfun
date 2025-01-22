@@ -3,55 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizolia - Unleash Your Inner Master!</title>
+    <title>QuizFun - Unleash Your Inner Quizmaster!</title>
     <link rel="icon" href="{{ url_for('static', filename='images/home-favicon.jpg') }}" type="image/jpg">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <a href="/" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"></path>
-                    <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
-                    <path d="M19 11h2m-1 -1v2"></path>
-                </svg>
-                <span>Quizolia</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="nav-desktop">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="/login" class="nav-link">Login</a>
-                <a href="/signup" class="cta-button">Get Started</a>
-            </nav>
-
-            <div class="header-actions">
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
+    <header>
+        <nav>
+            <div class="logo">QuizFun 🌟</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section id="hero">
-            <h1>Unleash Your Inner Player!</h1>
+            <h1>Unleash Your Inner Quizmaster!</h1>
             <p>Transform ideas into quizzes with just one click.</p>
             <a href="/signup" class="cta-button">Start Playing Now!</a>
         </section>
@@ -82,7 +54,7 @@
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <img src="{{ url_for('static', filename='images/woman1.jpg') }}" alt="Sarah">
-                    <blockquote>"Quizolia revolutionized how I create quizzes for my students!"</blockquote>
+                    <blockquote>"QuizFun revolutionized how I create quizzes for my students!"</blockquote>
                     <cite>Sarah J., Teacher</cite>
                 </div>
                 <div class="testimonial">
@@ -92,7 +64,7 @@
                 </div>
                 <div class="testimonial">
                     <img src="{{ url_for('static', filename='images/woman2.jpg') }}" alt="Lisa">
-                    <blockquote>"I love how easy it is to customize questions. Quizolia is simply the best!"</blockquote>
+                    <blockquote>"I love how easy it is to customize questions. QuizFun is simply the best!"</blockquote>
                     <cite>Lisa R., Content Creator</cite>
                 </div>
             </div>
@@ -110,13 +82,14 @@
             <a href="#terms">Terms of Service</a>
         </div>
         <div class="social-icons">
-            <a href="https://github.com/Quizolia" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
-            <a href="https://x.com/DohouDaniel10" target="_blank" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-            <!-- a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a -->
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
         </div>
-        <p>&copy; 2025 Quizolia. All rights reserved.</p>
+        <p>&copy; 2025 QuizFun. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
