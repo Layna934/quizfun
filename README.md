@@ -10,7 +10,7 @@ Welcome to **Quizolia**, the ultimate quiz experience designed to make learning 
 - **Instant Feedback**: Receive immediate feedback on your answers to track your progress.
 - **Responsive Design**: Enjoy a seamless experience on both desktop and mobile devices.
 
-## Demo
+<!-- ## Demo
 
 Check out the live version of Quizolia: [Quizolia on Render](https://quizolia.onrender.com)
 
@@ -21,7 +21,7 @@ Check out the live version of Quizolia: [Quizolia on Render](https://quizolia.on
 3. **Choose Difficulty**: Select the difficulty level of your quiz.
 4. **Start the Quiz**: Click on the "Start Quiz" button to begin.
 5. **Answer Questions**: Provide answers to the questions presented and receive instant feedback.
-6. **View Results**: After completing the quiz, see your score and review your answers.
+6. **View Results**: After completing the quiz, see your score and review your answers. -->
 
 ## Installation (Local Setup)
 
