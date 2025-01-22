@@ -1,0 +1,298 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --background-color: #f5f5f5;
+    --form-background: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #777777;
+    --border-color: #dddddd;
+    --input-background: #ffffff;
+    --checkbox-background: #ffffff;
+    --checkbox-border: #dddddd;
+    --checkbox-checked: #3498db;
+}
+
+.dark-mode {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --background-color: #1a1a1a;
+    --form-background: #2c2c2c;
+    --text-color: #f5f5f5;
+    --light-text-color: #aaaaaa;
+    --border-color: #444444;
+    --input-background: #3a3a3a;
+    --checkbox-background: #3a3a3a;
+    --checkbox-border: #555555;
+    --checkbox-checked: #3498db;
+}
+
+body {
+    font-family: 'Faustina', serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--form-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a.cta-button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.form__container {
+    max-width: 600px;
+    margin: 100px auto 0;
+    padding: 2rem;
+    background-color: var(--form-background);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.form__container h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.form__row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form__labelinput {
+    flex: 1;
+}
+
+.form__labelinput label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form__labelinput input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s;
+    background-color: var(--input-background);
+    color: var(--text-color);
+}
+
+.form__labelinput input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form__terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.form__terms input[type="checkbox"] {
+    margin-right: 0.5rem;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--checkbox-border);
+    border-radius: 3px;
+    background-color: var(--checkbox-background);
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form__terms input[type="checkbox"]:checked {
+    background-color: var(--checkbox-checked);
+    border-color: var(--checkbox-checked);
+}
+
+.form__terms input[type="checkbox"]:checked::after {
+    content: '\2714';
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.form__terms label {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.form__submit {
+    text-align: center;
+}
+
+.form__submit button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form__submit button:hover {
+    background-color: var(--secondary-color);
+}
+
+.form__submit p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.form__submit a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form__submit a:hover {
+    text-decoration: underline;
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+/* footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--light-text-color);
+} */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--light-text-color);
+    position: relative; /* Ensure it stays relative to the content */
+    margin-top: 2rem; /* Add spacing between the form and footer */
+    clear: both; /* Clears any floating elements above it */
+}
+
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    nav ul li a.cta-button {
+        display: block;
+        text-align: center;
+    }
+
+    .form__container {
+        margin-top: 120px;
+        padding: 1.5rem;
+    }
+
+    .form__row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .form__container {
+        padding: 1rem;
+    }
+
+    .form__container h3 {
+        font-size: 1.75rem;
+    }
+
+    .form__labelinput input {
+        padding: 0.6rem;
+    }
+
+    .form__submit button {
+        padding: 0.6rem;
+    }
+}
