@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login To Your Dashboard | Quizolia</title>
+    <title>Login Here</title>
     <link rel="icon" href="{{ url_for('static', filename='images/home-favicon.jpg') }}" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,16 +13,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <a href="/" class="logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"></path>
-                        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
-                        <path d="M19 11h2m-1 -1v2"></path>
-                    </svg>
-                    <span>Quizolia</span>
-                </a>
-            </div>
+            <div class="logo">QuizFun 🌟</div>
             <ul>
                 <li><a href="/signup" class="cta-button">Get Started</a></li>
             </ul>
@@ -79,8 +71,9 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 Quizolia. <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="https://github.com/Quizolia" target="_blank">Contact Support</a></p>
+        <p>&copy; 2025 QuizFun. <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Support</a></p>
     </footer>
+    <script src="script.js"></script>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>
