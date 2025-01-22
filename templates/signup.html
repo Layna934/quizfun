@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Quizolia</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/home-favicon.jpg') }}"
+      type="image/jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/signup.css') }}"
+    />
+    <!-- GOOGLE FONT (Faustina) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Faustina:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="/" class="logo">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="logo-icon"
+            >
+              <path
+                d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"
+              ></path>
+              <path
+                d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"
+              ></path>
+              <path d="M19 11h2m-1 -1v2"></path>
+            </svg>
+            <span>Quizolia</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="/login" class="cta-button">Login</a></li>
+          <li>
+            <button
+              id="darkModeToggle"
+              class="dark-mode-toggle"
+              aria-label="Toggle dark mode"
+            >
+              🌓
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <form action="/signup" method="post" class="form__container">
+      <h3>Sign Up</h3>
+      <div class="form__row">
+        <div class="form__labelinput">
+          <label for="firstname">First Name</label>
+          <input
+            name="firstname"
+            type="text"
+            placeholder="First name"
+            required
+            id="firstname"
+          />
+        </div>
+        <div class="form__labelinput">
+          <label for="lastname">Last Name</label>
+          <input
+            name="lastname"
+            type="text"
+            placeholder="Last name"
+            required
+            id="lastname"
+          />
+        </div>
+      </div>
+      <div class="form__labelinput">
+        <label for="mail">E-mail</label>
+        <input
+          name="email"
+          type="email"
+          placeholder="Email Address"
+          required
+          id="mail"
+        />
+      </div>
+      <div class="form__labelinput">
+        <label for="password">Password</label>
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          id="password"
+        />
+      </div>
+      <div class="form__terms">
+        <input
+          name="terms_and_conditions"
+          type="checkbox"
+          required
+          id="terms"
+        />
+        <label for="terms">I agree to the Terms and Conditions</label>
+      </div>
+      <div class="form__submit">
+        <button type="submit" value="submit">Register</button>
+        <p>Already Have An Account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+    <footer>
+        <p>&copy; 2025 Quizolia. <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="https://github.com/Quizolia" target="_blank">Contact Support</a></p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+  </body>
+</html>
